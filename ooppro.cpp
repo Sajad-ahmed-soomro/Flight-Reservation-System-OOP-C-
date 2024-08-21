@@ -24,7 +24,7 @@ const int MAX_SEATS_PER_PLANE_ECO = 50;
 const int MAX_SEATS_PER_PLANE_BUS = 10;
 const int MAX_FLIGHTS_PER_AIRPORT_LOCAL = 10;
 const int MAX_FLIGHTS_PER_AIRPORT_INTL = 5;
-const int MAX_PASSENGERS = 50000;
+const int MAX_PASSENGERS = 50;
 const int MAX_BOOKINGS = MAX_PASSENGERS * 2; // Maximum 2 bookings per passenger
 int ticket = 0;
 int ticket_local = 0;
@@ -421,16 +421,16 @@ public:
     int city_dep;
     int Routeoption;
     bool is_International;
-    double cost_local_economy;          //= 10000;
-    double cost_local_buisness;         // = 15000;
-    double cost_International_economy;  // = 20000;
-    double cost_International_buisness; // = 40000;
+    double cost_local_economy          = 100;
+    double cost_local_buisness         = 150;
+    double cost_International_economy   = 200;
+    double cost_International_buisness  = 400;
     // static const
-    double tax1;                 //= 0.5;
+    double tax1                 = 0.5;
                                  // static const
-    double tax2;                 //= 0.10;
+    double tax2                 = 0.10;
                                  //
-    static const double penalty; // = 0.25;
+     double penalty  = 0.25;
     double netprice;
     int classoption;
     int cityoption;
@@ -461,11 +461,6 @@ public:
     void TicketInformation_local(flight obj, int city);
     void TicketInformation_Inter(flight obj, int city);
 };
-void BookingSeats::country_flight()
-{   
-    cout << "Enter the city to schedual" << endl;
-    Islamabad_North.add_schedule("2/3/23 8:00", "2/3/23 9:00", "New York", 2);
-}
 void BookingSeats::seat_book()
 {
     cout << "Enter the date" << endl;
@@ -1018,14 +1013,13 @@ int main(void){
             {
             
                 Registration_Information();
-                Registration obj1,
-                obj1(name, cnic, confirmPassword, age);
+                Registration obj1(name, cnic, confirmPassword, age);
                 obj1.Registers(name,cnic,confirmPassword,age);
                 break;
             }else if(reoption==2){
                 Registration_Information();
                 Registration obj2(name, cnic, confirmPassword, age);
-                obj2.Accountcheck(cnic,confirmPassword,50000);
+                obj2.Accountcheck(cnic,confirmPassword,500);
             }
           else if (reoption == 3)
          {
@@ -1041,4 +1035,4 @@ int main(void){
 
 
 
-}
+    }}
